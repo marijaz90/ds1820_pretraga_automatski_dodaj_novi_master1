@@ -1,5 +1,5 @@
-#line 1 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master/one_wire_functions.c"
-#line 1 "e:/documents/pic/moji kodovi/mikroc/pic18f4431/ds1820/ds1820_pretraga_automatski_dodaj_novi_master/one_wire_functions.h"
+#line 1 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master1/one_wire_functions.c"
+#line 1 "e:/documents/pic/moji kodovi/mikroc/pic18f4431/ds1820/ds1820_pretraga_automatski_dodaj_novi_master1/one_wire_functions.h"
 
 
 unsigned short Ow_Read_Bit();
@@ -16,7 +16,7 @@ int Ow_Next();
 
 
 extern unsigned char ROM_NO[8];
-#line 6 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master/one_wire_functions.c"
+#line 6 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master1/one_wire_functions.c"
 extern unsigned char ROM_NO[8];
 int LastDiscrepancy;
 int LastFamilyDiscrepancy;

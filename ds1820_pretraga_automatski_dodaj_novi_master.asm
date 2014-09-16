@@ -725,7 +725,7 @@ L_skenirajSenzore45:
 ;ds1820_pretraga_automatski_dodaj_novi_master.c,239 :: 		}
 	GOTO        L_skenirajSenzore42
 L_skenirajSenzore43:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,242 :: 		for(i=0; i<brTrenutnihSenzora; i++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,245 :: 		for(i=0; i<brTrenutnihSenzora; i++)
 	CLRF        skenirajSenzore_i_L0+0 
 	CLRF        skenirajSenzore_i_L0+1 
 L_skenirajSenzore46:
@@ -741,7 +741,7 @@ L_skenirajSenzore46:
 L__skenirajSenzore118:
 	BTFSC       STATUS+0, 0 
 	GOTO        L_skenirajSenzore47
-;ds1820_pretraga_automatski_dodaj_novi_master.c,244 :: 		if(SenzoriFlagovi[i]==0)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,247 :: 		if(SenzoriFlagovi[i]==0)
 	MOVLW       _SenzoriFlagovi+0
 	ADDWF       skenirajSenzore_i_L0+0, 0 
 	MOVWF       FSR0 
@@ -752,9 +752,9 @@ L__skenirajSenzore118:
 	XORLW       0
 	BTFSS       STATUS+0, 2 
 	GOTO        L_skenirajSenzore49
-;ds1820_pretraga_automatski_dodaj_novi_master.c,246 :: 		postojeciSenzor=0;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,249 :: 		postojeciSenzor=0;
 	CLRF        _postojeciSenzor+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,247 :: 		for(j=0;j<brStarihSenzora;j++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,250 :: 		for(j=0;j<brStarihSenzora;j++)
 	CLRF        skenirajSenzore_j_L0+0 
 	CLRF        skenirajSenzore_j_L0+1 
 L_skenirajSenzore50:
@@ -770,7 +770,7 @@ L_skenirajSenzore50:
 L__skenirajSenzore119:
 	BTFSC       STATUS+0, 0 
 	GOTO        L_skenirajSenzore51
-;ds1820_pretraga_automatski_dodaj_novi_master.c,250 :: 		if(EEPROMFlagovi[j]==0)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,253 :: 		if(EEPROMFlagovi[j]==0)
 	MOVLW       _EEPROMFlagovi+0
 	ADDWF       skenirajSenzore_j_L0+0, 0 
 	MOVWF       FSR0 
@@ -781,10 +781,10 @@ L__skenirajSenzore119:
 	XORLW       0
 	BTFSS       STATUS+0, 2 
 	GOTO        L_skenirajSenzore53
-;ds1820_pretraga_automatski_dodaj_novi_master.c,252 :: 		postojeciSenzor=1;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,255 :: 		postojeciSenzor=1;
 	MOVLW       1
 	MOVWF       _postojeciSenzor+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,253 :: 		for(k=0;k<8;k++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,256 :: 		for(k=0;k<8;k++)
 	CLRF        skenirajSenzore_k_L0+0 
 	CLRF        skenirajSenzore_k_L0+1 
 L_skenirajSenzore54:
@@ -800,7 +800,7 @@ L_skenirajSenzore54:
 L__skenirajSenzore120:
 	BTFSC       STATUS+0, 0 
 	GOTO        L_skenirajSenzore55
-;ds1820_pretraga_automatski_dodaj_novi_master.c,255 :: 		EEPROM_Write(j*16 +k,ROMovi[i][k]);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,258 :: 		EEPROM_Write(j*16 +k,ROMovi[i][k]);
 	MOVLW       4
 	MOVWF       R0 
 	MOVF        skenirajSenzore_j_L0+0, 0 
@@ -843,7 +843,7 @@ L__skenirajSenzore124:
 	MOVF        POSTINC0+0, 0 
 	MOVWF       FARG_EEPROM_Write_data_+0 
 	CALL        _EEPROM_Write+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,256 :: 		EEPROMMatrica[j][k] = ROMovi[i][k];
+;ds1820_pretraga_automatski_dodaj_novi_master.c,259 :: 		EEPROMMatrica[j][k] = ROMovi[i][k];
 	MOVLW       3
 	MOVWF       R2 
 	MOVF        skenirajSenzore_j_L0+0, 0 
@@ -896,13 +896,13 @@ L__skenirajSenzore128:
 	MOVWF       FSR0H 
 	MOVF        POSTINC0+0, 0 
 	MOVWF       POSTINC1+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,253 :: 		for(k=0;k<8;k++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,256 :: 		for(k=0;k<8;k++)
 	INFSNZ      skenirajSenzore_k_L0+0, 1 
 	INCF        skenirajSenzore_k_L0+1, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,257 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,260 :: 		}
 	GOTO        L_skenirajSenzore54
 L_skenirajSenzore55:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,258 :: 		EEPROMFlagovi[j]=1;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,261 :: 		EEPROMFlagovi[j]=1;
 	MOVLW       _EEPROMFlagovi+0
 	ADDWF       skenirajSenzore_j_L0+0, 0 
 	MOVWF       FSR1 
@@ -911,22 +911,22 @@ L_skenirajSenzore55:
 	MOVWF       FSR1H 
 	MOVLW       1
 	MOVWF       POSTINC1+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,259 :: 		break;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,262 :: 		break;
 	GOTO        L_skenirajSenzore51
-;ds1820_pretraga_automatski_dodaj_novi_master.c,260 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,263 :: 		}
 L_skenirajSenzore53:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,247 :: 		for(j=0;j<brStarihSenzora;j++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,250 :: 		for(j=0;j<brStarihSenzora;j++)
 	INFSNZ      skenirajSenzore_j_L0+0, 1 
 	INCF        skenirajSenzore_j_L0+1, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,261 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,264 :: 		}
 	GOTO        L_skenirajSenzore50
 L_skenirajSenzore51:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,262 :: 		if(postojeciSenzor==0)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,265 :: 		if(postojeciSenzor==0)
 	MOVF        _postojeciSenzor+0, 0 
 	XORLW       0
 	BTFSS       STATUS+0, 2 
 	GOTO        L_skenirajSenzore57
-;ds1820_pretraga_automatski_dodaj_novi_master.c,264 :: 		for(k=0;k<8;k++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,270 :: 		for(k=0;k<8;k++)
 	CLRF        skenirajSenzore_k_L0+0 
 	CLRF        skenirajSenzore_k_L0+1 
 L_skenirajSenzore58:
@@ -942,7 +942,7 @@ L_skenirajSenzore58:
 L__skenirajSenzore129:
 	BTFSC       STATUS+0, 0 
 	GOTO        L_skenirajSenzore59
-;ds1820_pretraga_automatski_dodaj_novi_master.c,266 :: 		EEPROM_Write(brStarihSenzora*16 +k,ROMovi[i][k]);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,272 :: 		EEPROM_Write(brStarihSenzora*16 +k,ROMovi[i][k]);
 	MOVF        _brStarihSenzora+0, 0 
 	MOVWF       FARG_EEPROM_Write_address+0 
 	RLCF        FARG_EEPROM_Write_address+0, 1 
@@ -983,7 +983,7 @@ L__skenirajSenzore131:
 	MOVF        POSTINC0+0, 0 
 	MOVWF       FARG_EEPROM_Write_data_+0 
 	CALL        _EEPROM_Write+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,267 :: 		EEPROMMatrica[brStarihSenzora][k] = ROMovi[i][k];
+;ds1820_pretraga_automatski_dodaj_novi_master.c,273 :: 		EEPROMMatrica[brStarihSenzora][k] = ROMovi[i][k];
 	MOVLW       3
 	MOVWF       R2 
 	MOVF        _brStarihSenzora+0, 0 
@@ -1036,47 +1036,45 @@ L__skenirajSenzore135:
 	MOVWF       FSR0H 
 	MOVF        POSTINC0+0, 0 
 	MOVWF       POSTINC1+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,264 :: 		for(k=0;k<8;k++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,270 :: 		for(k=0;k<8;k++)
 	INFSNZ      skenirajSenzore_k_L0+0, 1 
 	INCF        skenirajSenzore_k_L0+1, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,268 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,274 :: 		}
 	GOTO        L_skenirajSenzore58
 L_skenirajSenzore59:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,269 :: 		brStarihSenzora++;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,275 :: 		brStarihSenzora++;
 	INCF        _brStarihSenzora+0, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,270 :: 		break;
-	GOTO        L_skenirajSenzore47
-;ds1820_pretraga_automatski_dodaj_novi_master.c,271 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,277 :: 		}
 L_skenirajSenzore57:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,272 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,278 :: 		}
 L_skenirajSenzore49:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,242 :: 		for(i=0; i<brTrenutnihSenzora; i++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,245 :: 		for(i=0; i<brTrenutnihSenzora; i++)
 	INFSNZ      skenirajSenzore_i_L0+0, 1 
 	INCF        skenirajSenzore_i_L0+1, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,273 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,279 :: 		}
 	GOTO        L_skenirajSenzore46
 L_skenirajSenzore47:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,275 :: 		EEPROM_Write(0xFF,brStarihSenzora);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,281 :: 		EEPROM_Write(0xFF,brStarihSenzora);
 	MOVLW       255
 	MOVWF       FARG_EEPROM_Write_address+0 
 	MOVF        _brStarihSenzora+0, 0 
 	MOVWF       FARG_EEPROM_Write_data_+0 
 	CALL        _EEPROM_Write+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,276 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,282 :: 		}
 L_end_skenirajSenzore:
 	RETURN      0
 ; end of _skenirajSenzore
 
 _Display_Temperature:
 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,277 :: 		void Display_Temperature(unsigned char i, unsigned char j, unsigned int temp2write) {
-;ds1820_pretraga_automatski_dodaj_novi_master.c,283 :: 		if (temp2write & 0x8000)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,283 :: 		void Display_Temperature(unsigned char i, unsigned char j, unsigned int temp2write) {
+;ds1820_pretraga_automatski_dodaj_novi_master.c,289 :: 		if (temp2write & 0x8000)
 	BTFSS       FARG_Display_Temperature_temp2write+1, 7 
 	GOTO        L_Display_Temperature61
-;ds1820_pretraga_automatski_dodaj_novi_master.c,285 :: 		text[0] = '-';
+;ds1820_pretraga_automatski_dodaj_novi_master.c,291 :: 		text[0] = '-';
 	MOVLW       45
 	MOVWF       _text+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,286 :: 		temp2write = ~temp2write; //ovde bi trebalo temp2write = ~temp2write + 1, ali to u proteusu ne radi, a ovo radi
+;ds1820_pretraga_automatski_dodaj_novi_master.c,292 :: 		temp2write = ~temp2write; //ovde bi trebalo temp2write = ~temp2write + 1, ali to u proteusu ne radi, a ovo radi
 	COMF        FARG_Display_Temperature_temp2write+0, 0 
 	MOVWF       R3 
 	COMF        FARG_Display_Temperature_temp2write+1, 0 
@@ -1085,7 +1083,7 @@ _Display_Temperature:
 	MOVWF       FARG_Display_Temperature_temp2write+0 
 	MOVF        R4, 0 
 	MOVWF       FARG_Display_Temperature_temp2write+1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,288 :: 		temp_whole = temp2write >> RES_SHIFT ;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,294 :: 		temp_whole = temp2write >> RES_SHIFT ;
 	MOVF        R3, 0 
 	MOVWF       R0 
 	MOVF        R4, 0 
@@ -1095,10 +1093,10 @@ _Display_Temperature:
 	BCF         R1, 7 
 	MOVF        R0, 0 
 	MOVWF       Display_Temperature_temp_whole_L0+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,289 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,295 :: 		}
 	GOTO        L_Display_Temperature62
 L_Display_Temperature61:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,293 :: 		temp_whole = temp2write >> RES_SHIFT ;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,299 :: 		temp_whole = temp2write >> RES_SHIFT ;
 	MOVF        FARG_Display_Temperature_temp2write+0, 0 
 	MOVWF       R0 
 	MOVF        FARG_Display_Temperature_temp2write+1, 0 
@@ -1108,14 +1106,14 @@ L_Display_Temperature61:
 	BCF         R1, 7 
 	MOVF        R0, 0 
 	MOVWF       Display_Temperature_temp_whole_L0+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,294 :: 		if (temp_whole/100)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,300 :: 		if (temp_whole/100)
 	MOVLW       100
 	MOVWF       R4 
 	CALL        _Div_8x8_U+0, 0
 	MOVF        R0, 1 
 	BTFSC       STATUS+0, 2 
 	GOTO        L_Display_Temperature63
-;ds1820_pretraga_automatski_dodaj_novi_master.c,296 :: 		text[0] = temp_whole/100  + 48;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,302 :: 		text[0] = temp_whole/100  + 48;
 	MOVLW       100
 	MOVWF       R4 
 	MOVF        Display_Temperature_temp_whole_L0+0, 0 
@@ -1124,17 +1122,17 @@ L_Display_Temperature61:
 	MOVLW       48
 	ADDWF       R0, 0 
 	MOVWF       _text+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,297 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,303 :: 		}
 	GOTO        L_Display_Temperature64
 L_Display_Temperature63:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,300 :: 		text[0] = '0';
+;ds1820_pretraga_automatski_dodaj_novi_master.c,306 :: 		text[0] = '0';
 	MOVLW       48
 	MOVWF       _text+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,301 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,307 :: 		}
 L_Display_Temperature64:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,302 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,308 :: 		}
 L_Display_Temperature62:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,306 :: 		text[1] = (temp_whole/10)%10 + 48;             // Extract tens digit
+;ds1820_pretraga_automatski_dodaj_novi_master.c,312 :: 		text[1] = (temp_whole/10)%10 + 48;             // Extract tens digit
 	MOVLW       10
 	MOVWF       R4 
 	MOVF        Display_Temperature_temp_whole_L0+0, 0 
@@ -1148,7 +1146,7 @@ L_Display_Temperature62:
 	MOVLW       48
 	ADDWF       R0, 0 
 	MOVWF       _text+1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,307 :: 		text[2] =  temp_whole%10     + 48;             // Extract ones digit
+;ds1820_pretraga_automatski_dodaj_novi_master.c,313 :: 		text[2] =  temp_whole%10     + 48;             // Extract ones digit
 	MOVLW       10
 	MOVWF       R4 
 	MOVF        Display_Temperature_temp_whole_L0+0, 0 
@@ -1159,10 +1157,10 @@ L_Display_Temperature62:
 	MOVLW       48
 	ADDWF       R0, 0 
 	MOVWF       _text+2 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,308 :: 		text[3]  ='.';
+;ds1820_pretraga_automatski_dodaj_novi_master.c,314 :: 		text[3]  ='.';
 	MOVLW       46
 	MOVWF       _text+3 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,311 :: 		temp_fraction  = temp2write << (4-RES_SHIFT);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,317 :: 		temp_fraction  = temp2write << (4-RES_SHIFT);
 	MOVF        FARG_Display_Temperature_temp2write+0, 0 
 	MOVWF       R0 
 	MOVF        FARG_Display_Temperature_temp2write+1, 0 
@@ -1176,18 +1174,18 @@ L_Display_Temperature62:
 	RLCF        R0, 1 
 	BCF         R0, 0 
 	RLCF        R1, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,312 :: 		temp_fraction &= 0x000F;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,318 :: 		temp_fraction &= 0x000F;
 	MOVLW       15
 	ANDWF       R0, 1 
 	MOVLW       0
 	ANDWF       R1, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,313 :: 		temp_fraction *= 625;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,319 :: 		temp_fraction *= 625;
 	MOVLW       113
 	MOVWF       R4 
 	MOVLW       2
 	MOVWF       R5 
 	CALL        _Mul_16x16_U+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,316 :: 		text[4] =  temp_fraction/1000    + 48;         // Extract thousands digit
+;ds1820_pretraga_automatski_dodaj_novi_master.c,322 :: 		text[4] =  temp_fraction/1000    + 48;         // Extract thousands digit
 	MOVLW       232
 	MOVWF       R4 
 	MOVLW       3
@@ -1196,12 +1194,12 @@ L_Display_Temperature62:
 	MOVLW       48
 	ADDWF       R0, 0 
 	MOVWF       _text+4 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,317 :: 		text[5]=248;                                   //ascii za stepen
-	MOVLW       248
+;ds1820_pretraga_automatski_dodaj_novi_master.c,323 :: 		text[5]=223;                                   //ascii za stepen
+	MOVLW       223
 	MOVWF       _text+5 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,318 :: 		text[6]='\0';
+;ds1820_pretraga_automatski_dodaj_novi_master.c,324 :: 		text[6]='\0';
 	CLRF        _text+6 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,321 :: 		Lcd_Out(i, j, text);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,327 :: 		Lcd_Out(i, j, text);
 	MOVF        FARG_Display_Temperature_i+0, 0 
 	MOVWF       FARG_Lcd_Out_row+0 
 	MOVF        FARG_Display_Temperature_j+0, 0 
@@ -1211,28 +1209,28 @@ L_Display_Temperature62:
 	MOVLW       hi_addr(_text+0)
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,322 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,328 :: 		}
 L_end_Display_Temperature:
 	RETURN      0
 ; end of _Display_Temperature
 
 _citajTemp:
 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,325 :: 		unsigned int citajTemp(unsigned char *x)
-;ds1820_pretraga_automatski_dodaj_novi_master.c,330 :: 		Ow_Reset();                         // Onewire reset signal
+;ds1820_pretraga_automatski_dodaj_novi_master.c,331 :: 		unsigned int citajTemp(unsigned char *x)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,336 :: 		Ow_Reset();                         // Onewire reset signal
 	CALL        _Ow_Reset+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,331 :: 		Ow_Write_Byte(0x55);              // Issue command MATCH_ROM
+;ds1820_pretraga_automatski_dodaj_novi_master.c,337 :: 		Ow_Write_Byte(0x55);              // Issue command MATCH_ROM
 	MOVLW       85
 	MOVWF       FARG_Ow_Write_Byte+0 
 	CALL        _Ow_Write_Byte+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,332 :: 		for(i = 0; i < 8; i++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,338 :: 		for(i = 0; i < 8; i++)
 	CLRF        _i+0 
 L_citajTemp65:
 	MOVLW       8
 	SUBWF       _i+0, 0 
 	BTFSC       STATUS+0, 0 
 	GOTO        L_citajTemp66
-;ds1820_pretraga_automatski_dodaj_novi_master.c,334 :: 		Ow_Write_Byte(x[7-i]);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,340 :: 		Ow_Write_Byte(x[7-i]);
 	MOVF        _i+0, 0 
 	SUBLW       7
 	MOVWF       R0 
@@ -1248,16 +1246,16 @@ L_citajTemp65:
 	MOVF        POSTINC0+0, 0 
 	MOVWF       FARG_Ow_Write_Byte+0 
 	CALL        _Ow_Write_Byte+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,332 :: 		for(i = 0; i < 8; i++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,338 :: 		for(i = 0; i < 8; i++)
 	INCF        _i+0, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,335 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,341 :: 		}
 	GOTO        L_citajTemp65
 L_citajTemp66:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,336 :: 		Ow_Write_Byte(0x44);              // Issue command CONVERT_T
+;ds1820_pretraga_automatski_dodaj_novi_master.c,342 :: 		Ow_Write_Byte(0x44);              // Issue command CONVERT_T
 	MOVLW       68
 	MOVWF       FARG_Ow_Write_Byte+0 
 	CALL        _Ow_Write_Byte+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,337 :: 		Delay_us(120);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,343 :: 		Delay_us(120);
 	MOVLW       199
 	MOVWF       R13, 0
 L_citajTemp68:
@@ -1265,20 +1263,20 @@ L_citajTemp68:
 	BRA         L_citajTemp68
 	NOP
 	NOP
-;ds1820_pretraga_automatski_dodaj_novi_master.c,339 :: 		Ow_Reset();                         // Onewire reset signal
+;ds1820_pretraga_automatski_dodaj_novi_master.c,345 :: 		Ow_Reset();                         // Onewire reset signal
 	CALL        _Ow_Reset+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,340 :: 		Ow_Write_Byte(0x55);              // Issue command MATCH_ROM
+;ds1820_pretraga_automatski_dodaj_novi_master.c,346 :: 		Ow_Write_Byte(0x55);              // Issue command MATCH_ROM
 	MOVLW       85
 	MOVWF       FARG_Ow_Write_Byte+0 
 	CALL        _Ow_Write_Byte+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,341 :: 		for(i = 0; i < 8; i++)                       // This MUST follow MATCH_ROM
+;ds1820_pretraga_automatski_dodaj_novi_master.c,347 :: 		for(i = 0; i < 8; i++)                       // This MUST follow MATCH_ROM
 	CLRF        _i+0 
 L_citajTemp69:
 	MOVLW       8
 	SUBWF       _i+0, 0 
 	BTFSC       STATUS+0, 0 
 	GOTO        L_citajTemp70
-;ds1820_pretraga_automatski_dodaj_novi_master.c,343 :: 		Ow_Write_Byte(x[7-i]);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,349 :: 		Ow_Write_Byte(x[7-i]);
 	MOVF        _i+0, 0 
 	SUBLW       7
 	MOVWF       R0 
@@ -1294,23 +1292,23 @@ L_citajTemp69:
 	MOVF        POSTINC0+0, 0 
 	MOVWF       FARG_Ow_Write_Byte+0 
 	CALL        _Ow_Write_Byte+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,341 :: 		for(i = 0; i < 8; i++)                       // This MUST follow MATCH_ROM
+;ds1820_pretraga_automatski_dodaj_novi_master.c,347 :: 		for(i = 0; i < 8; i++)                       // This MUST follow MATCH_ROM
 	INCF        _i+0, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,344 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,350 :: 		}
 	GOTO        L_citajTemp69
 L_citajTemp70:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,345 :: 		Ow_Write_Byte(0xBE);        // Issue command READ_SCRATCHPAD
+;ds1820_pretraga_automatski_dodaj_novi_master.c,351 :: 		Ow_Write_Byte(0xBE);        // Issue command READ_SCRATCHPAD
 	MOVLW       190
 	MOVWF       FARG_Ow_Write_Byte+0 
 	CALL        _Ow_Write_Byte+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,347 :: 		for(i = 0; i < 2; i++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,353 :: 		for(i = 0; i < 2; i++)
 	CLRF        _i+0 
 L_citajTemp72:
 	MOVLW       2
 	SUBWF       _i+0, 0 
 	BTFSC       STATUS+0, 0 
 	GOTO        L_citajTemp73
-;ds1820_pretraga_automatski_dodaj_novi_master.c,349 :: 		scratchPad0[i] = Ow_Read_Byte();
+;ds1820_pretraga_automatski_dodaj_novi_master.c,355 :: 		scratchPad0[i] = Ow_Read_Byte();
 	MOVLW       citajTemp_scratchPad0_L0+0
 	MOVWF       FLOC__citajTemp+0 
 	MOVLW       hi_addr(citajTemp_scratchPad0_L0+0)
@@ -1324,17 +1322,17 @@ L_citajTemp72:
 	MOVFF       FLOC__citajTemp+1, FSR1H
 	MOVF        R0, 0 
 	MOVWF       POSTINC1+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,347 :: 		for(i = 0; i < 2; i++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,353 :: 		for(i = 0; i < 2; i++)
 	INCF        _i+0, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,350 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,356 :: 		}
 	GOTO        L_citajTemp72
 L_citajTemp73:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,352 :: 		tempDigitalno = scratchPad0[0];
+;ds1820_pretraga_automatski_dodaj_novi_master.c,358 :: 		tempDigitalno = scratchPad0[0];
 	MOVF        citajTemp_scratchPad0_L0+0, 0 
 	MOVWF       citajTemp_tempDigitalno_L0+0 
 	MOVLW       0
 	MOVWF       citajTemp_tempDigitalno_L0+1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,353 :: 		tempDigitalno = (scratchPad0[1] << 8) + tempDigitalno;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,359 :: 		tempDigitalno = (scratchPad0[1] << 8) + tempDigitalno;
 	MOVF        citajTemp_scratchPad0_L0+1, 0 
 	MOVWF       R1 
 	CLRF        R0 
@@ -1346,52 +1344,52 @@ L_citajTemp73:
 	MOVWF       citajTemp_tempDigitalno_L0+0 
 	MOVF        R1, 0 
 	MOVWF       citajTemp_tempDigitalno_L0+1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,355 :: 		return tempDigitalno;
-;ds1820_pretraga_automatski_dodaj_novi_master.c,356 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,361 :: 		return tempDigitalno;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,362 :: 		}
 L_end_citajTemp:
 	RETURN      0
 ; end of _citajTemp
 
 _main:
 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,358 :: 		void main()
-;ds1820_pretraga_automatski_dodaj_novi_master.c,362 :: 		ANSEL0  = 0;                   // Configure AN pins as digital I/O
+;ds1820_pretraga_automatski_dodaj_novi_master.c,364 :: 		void main()
+;ds1820_pretraga_automatski_dodaj_novi_master.c,368 :: 		ANSEL0  = 0;                   // Configure AN pins as digital I/O
 	CLRF        ANSEL0+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,363 :: 		ANSEL1 = 0;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,369 :: 		ANSEL1 = 0;
 	CLRF        ANSEL1+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,365 :: 		MOVLW 15      // Set RB<4:0> as digital I/O pins (required if config bit PBADEN is set)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,371 :: 		MOVLW 15      // Set RB<4:0> as digital I/O pins (required if config bit PBADEN is set)
 	MOVLW       15
-;ds1820_pretraga_automatski_dodaj_novi_master.c,366 :: 		MOVWF ADCON1  //ADCON1 = 0b00001111
+;ds1820_pretraga_automatski_dodaj_novi_master.c,372 :: 		MOVWF ADCON1  //ADCON1 = 0b00001111
 	MOVWF       ADCON1+0, 1
-;ds1820_pretraga_automatski_dodaj_novi_master.c,367 :: 		MOVLW 7       //Dakle, TRISB = 0b00000111
+;ds1820_pretraga_automatski_dodaj_novi_master.c,373 :: 		MOVLW 7       //Dakle, TRISB = 0b00000111
 	MOVLW       7
-;ds1820_pretraga_automatski_dodaj_novi_master.c,368 :: 		MOVWF TRISB   //RB<2:0> su ulazi a RB<7:3> izlazi
+;ds1820_pretraga_automatski_dodaj_novi_master.c,374 :: 		MOVWF TRISB   //RB<2:0> su ulazi a RB<7:3> izlazi
 	MOVWF       TRISB+0, 1
-;ds1820_pretraga_automatski_dodaj_novi_master.c,369 :: 		MOVLW 32      //Dakle, TRISA = 0b00111111
+;ds1820_pretraga_automatski_dodaj_novi_master.c,375 :: 		MOVLW 32      //Dakle, TRISA = 0b00111111
 	MOVLW       32
-;ds1820_pretraga_automatski_dodaj_novi_master.c,370 :: 		MOVWF TRISA
+;ds1820_pretraga_automatski_dodaj_novi_master.c,376 :: 		MOVWF TRISA
 	MOVWF       TRISA+0, 1
-;ds1820_pretraga_automatski_dodaj_novi_master.c,372 :: 		TRISD = 0b00000000;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,378 :: 		TRISD = 0b00000000;
 	CLRF        TRISD+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,373 :: 		TRISC.RC6 = 0;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,379 :: 		TRISC.RC6 = 0;
 	BCF         TRISC+0, 6 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,375 :: 		LATC.RC6 = 0;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,381 :: 		LATC.RC6 = 0;
 	BCF         LATC+0, 6 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,376 :: 		LATB.RB4 = 0;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,382 :: 		LATB.RB4 = 0;
 	BCF         LATB+0, 4 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,378 :: 		INTCON.GIE = 0;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,384 :: 		INTCON.GIE = 0;
 	BCF         INTCON+0, 7 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,380 :: 		Lcd_Init();
+;ds1820_pretraga_automatski_dodaj_novi_master.c,386 :: 		Lcd_Init();
 	CALL        _Lcd_Init+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,381 :: 		Lcd_Cmd(_LCD_CLEAR);        // CLEAR display
+;ds1820_pretraga_automatski_dodaj_novi_master.c,387 :: 		Lcd_Cmd(_LCD_CLEAR);        // CLEAR display
 	MOVLW       1
 	MOVWF       FARG_Lcd_Cmd_out_char+0 
 	CALL        _Lcd_Cmd+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,382 :: 		Lcd_Cmd(_LCD_CURSOR_OFF);   // Cursor off
+;ds1820_pretraga_automatski_dodaj_novi_master.c,388 :: 		Lcd_Cmd(_LCD_CURSOR_OFF);   // Cursor off
 	MOVLW       12
 	MOVWF       FARG_Lcd_Cmd_out_char+0 
 	CALL        _Lcd_Cmd+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,383 :: 		Delay_ms(100);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,389 :: 		Delay_ms(100);
 	MOVLW       3
 	MOVWF       R11, 0
 	MOVLW       138
@@ -1407,13 +1405,13 @@ L_main75:
 	BRA         L_main75
 	NOP
 	NOP
-;ds1820_pretraga_automatski_dodaj_novi_master.c,397 :: 		EEPROMuMatricu();
+;ds1820_pretraga_automatski_dodaj_novi_master.c,403 :: 		EEPROMuMatricu();
 	CALL        _EEPROMuMatricu+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,402 :: 		skenirajSenzore();
+;ds1820_pretraga_automatski_dodaj_novi_master.c,408 :: 		skenirajSenzore();
 	CALL        _skenirajSenzore+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,404 :: 		while(1)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,410 :: 		while(1)
 L_main76:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,406 :: 		for(i = 0; i < brStarihSenzora; i++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,412 :: 		for(i = 0; i < brStarihSenzora; i++)
 	CLRF        main_i_L0+0 
 	CLRF        main_i_L0+1 
 L_main78:
@@ -1429,16 +1427,16 @@ L_main78:
 L__main139:
 	BTFSC       STATUS+0, 0 
 	GOTO        L_main79
-;ds1820_pretraga_automatski_dodaj_novi_master.c,408 :: 		tmp2[0]=i+'0';
+;ds1820_pretraga_automatski_dodaj_novi_master.c,414 :: 		tmp2[0]=i+'0';
 	MOVLW       48
 	ADDWF       main_i_L0+0, 0 
 	MOVWF       _tmp2+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,409 :: 		tmp2[1]=':';
+;ds1820_pretraga_automatski_dodaj_novi_master.c,415 :: 		tmp2[1]=':';
 	MOVLW       58
 	MOVWF       _tmp2+1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,410 :: 		tmp2[2]='\0';
+;ds1820_pretraga_automatski_dodaj_novi_master.c,416 :: 		tmp2[2]='\0';
 	CLRF        _tmp2+2 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,411 :: 		Lcd_out((i/2)%2 +1, i % 2 == 0 ? 1 : 9,tmp2);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,417 :: 		Lcd_out((i/2)%2 +1, i % 2 == 0 ? 1 : 9,tmp2);
 	MOVF        main_i_L0+0, 0 
 	MOVWF       R0 
 	MOVF        main_i_L0+1, 0 
@@ -1496,7 +1494,7 @@ L_main82:
 	MOVLW       hi_addr(_tmp2+0)
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,412 :: 		if(EEPROMFlagovi[i]==0)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,418 :: 		if(EEPROMFlagovi[i]==0)
 	MOVLW       _EEPROMFlagovi+0
 	ADDWF       main_i_L0+0, 0 
 	MOVWF       FSR0 
@@ -1507,7 +1505,7 @@ L_main82:
 	XORLW       0
 	BTFSS       STATUS+0, 2 
 	GOTO        L_main83
-;ds1820_pretraga_automatski_dodaj_novi_master.c,414 :: 		Lcd_out((i/2)%2 +1, i % 2 == 0 ? 3 : 11,"xxx.xx");
+;ds1820_pretraga_automatski_dodaj_novi_master.c,420 :: 		Lcd_out((i/2)%2 +1, i % 2 == 0 ? 3 : 11,"xxx.xx");
 	MOVF        main_i_L0+0, 0 
 	MOVWF       R0 
 	MOVF        main_i_L0+1, 0 
@@ -1565,11 +1563,11 @@ L_main85:
 	MOVLW       hi_addr(?lstr2_ds1820_pretraga_automatski_dodaj_novi_master+0)
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,415 :: 		continue;
+;ds1820_pretraga_automatski_dodaj_novi_master.c,421 :: 		continue;
 	GOTO        L_main80
-;ds1820_pretraga_automatski_dodaj_novi_master.c,416 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,422 :: 		}
 L_main83:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,417 :: 		temperatureDigitalne[i] = citajTemp(EEPROMMatrica[i]);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,423 :: 		temperatureDigitalne[i] = citajTemp(EEPROMMatrica[i]);
 	MOVF        main_i_L0+0, 0 
 	MOVWF       R0 
 	MOVF        main_i_L0+1, 0 
@@ -1611,7 +1609,7 @@ L__main143:
 	MOVWF       POSTINC1+0 
 	MOVF        R1, 0 
 	MOVWF       POSTINC1+0 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,420 :: 		Display_Temperature((i/2)%2 + 1,i % 2 == 0 ? 3 : 11, temperatureDigitalne[i]);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,426 :: 		Display_Temperature((i/2)%2 + 1,i % 2 == 0 ? 3 : 11, temperatureDigitalne[i]);
 	MOVF        main_i_L0+0, 0 
 	MOVWF       R0 
 	MOVF        main_i_L0+1, 0 
@@ -1682,7 +1680,7 @@ L_main87:
 	MOVF        POSTINC0+0, 0 
 	MOVWF       FARG_Display_Temperature_temp2write+1 
 	CALL        _Display_Temperature+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,422 :: 		for(j=0;j<8;j++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,428 :: 		for(j=0;j<8;j++)
 	CLRF        main_j_L0+0 
 	CLRF        main_j_L0+1 
 L_main88:
@@ -1698,7 +1696,7 @@ L_main88:
 L__main145:
 	BTFSC       STATUS+0, 0 
 	GOTO        L_main89
-;ds1820_pretraga_automatski_dodaj_novi_master.c,424 :: 		ByteToHex(EEPROMMatrica[i][j],ROMByte);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,430 :: 		ByteToHex(EEPROMMatrica[i][j],ROMByte);
 	MOVLW       3
 	MOVWF       R2 
 	MOVF        main_i_L0+0, 0 
@@ -1731,7 +1729,7 @@ L__main147:
 	MOVLW       hi_addr(_ROMByte+0)
 	MOVWF       FARG_ByteToHex_output+1 
 	CALL        _ByteToHex+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,425 :: 		Lcd_Out(2,2*j+1, ROMByte);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,431 :: 		Lcd_Out(2,2*j+1, ROMByte);
 	MOVLW       2
 	MOVWF       FARG_Lcd_Out_row+0 
 	MOVF        main_j_L0+0, 0 
@@ -1744,13 +1742,13 @@ L__main147:
 	MOVLW       hi_addr(_ROMByte+0)
 	MOVWF       FARG_Lcd_Out_text+1 
 	CALL        _Lcd_Out+0, 0
-;ds1820_pretraga_automatski_dodaj_novi_master.c,422 :: 		for(j=0;j<8;j++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,428 :: 		for(j=0;j<8;j++)
 	INFSNZ      main_j_L0+0, 1 
 	INCF        main_j_L0+1, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,426 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,432 :: 		}
 	GOTO        L_main88
 L_main89:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,427 :: 		Delay_ms(1000);
+;ds1820_pretraga_automatski_dodaj_novi_master.c,433 :: 		Delay_ms(1000);
 	MOVLW       26
 	MOVWF       R11, 0
 	MOVLW       94
@@ -1765,17 +1763,17 @@ L_main91:
 	DECFSZ      R11, 1, 1
 	BRA         L_main91
 	NOP
-;ds1820_pretraga_automatski_dodaj_novi_master.c,429 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,435 :: 		}
 L_main80:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,406 :: 		for(i = 0; i < brStarihSenzora; i++)
+;ds1820_pretraga_automatski_dodaj_novi_master.c,412 :: 		for(i = 0; i < brStarihSenzora; i++)
 	INFSNZ      main_i_L0+0, 1 
 	INCF        main_i_L0+1, 1 
-;ds1820_pretraga_automatski_dodaj_novi_master.c,429 :: 		}
+;ds1820_pretraga_automatski_dodaj_novi_master.c,435 :: 		}
 	GOTO        L_main78
 L_main79:
-;ds1820_pretraga_automatski_dodaj_novi_master.c,431 :: 		}  // Glavna petlja se zavrsava ovde
+;ds1820_pretraga_automatski_dodaj_novi_master.c,437 :: 		}  // Glavna petlja se zavrsava ovde
 	GOTO        L_main76
-;ds1820_pretraga_automatski_dodaj_novi_master.c,433 :: 		}  // end main function
+;ds1820_pretraga_automatski_dodaj_novi_master.c,439 :: 		}  // end main function
 L_end_main:
 	GOTO        $+0
 ; end of _main

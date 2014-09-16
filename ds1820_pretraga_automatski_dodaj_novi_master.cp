@@ -1,5 +1,5 @@
-#line 1 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master/ds1820_pretraga_automatski_dodaj_novi_master.c"
-#line 1 "e:/documents/pic/moji kodovi/mikroc/pic18f4431/ds1820/ds1820_pretraga_automatski_dodaj_novi_master/one_wire_functions.h"
+#line 1 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master1/ds1820_pretraga_automatski_dodaj_novi_master.c"
+#line 1 "e:/documents/pic/moji kodovi/mikroc/pic18f4431/ds1820/ds1820_pretraga_automatski_dodaj_novi_master1/one_wire_functions.h"
 
 
 unsigned short Ow_Read_Bit();
@@ -16,7 +16,7 @@ int Ow_Next();
 
 
 extern unsigned char ROM_NO[8];
-#line 23 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master/ds1820_pretraga_automatski_dodaj_novi_master.c"
+#line 23 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master1/ds1820_pretraga_automatski_dodaj_novi_master.c"
 sbit LCD_RS at RB5_bit;
 sbit LCD_EN at RB3_bit;
 sbit LCD_D4 at RD4_bit;
@@ -101,7 +101,7 @@ unsigned char istiROMovi(unsigned char * rom1, unsigned char * rom2)
  }
  return 1;
 }
-#line 168 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master/ds1820_pretraga_automatski_dodaj_novi_master.c"
+#line 168 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master1/ds1820_pretraga_automatski_dodaj_novi_master.c"
 void skenirajSenzore()
 {
  int i,j,k;
@@ -176,6 +176,9 @@ void skenirajSenzore()
  }
 
 
+
+
+
  for(i=0; i<brTrenutnihSenzora; i++)
  {
  if(SenzoriFlagovi[i]==0)
@@ -198,13 +201,16 @@ void skenirajSenzore()
  }
  if(postojeciSenzor==0)
  {
+
+
+
  for(k=0;k<8;k++)
  {
  EEPROM_Write(brStarihSenzora*16 +k,ROMovi[i][k]);
  EEPROMMatrica[brStarihSenzora][k] = ROMovi[i][k];
  }
  brStarihSenzora++;
- break;
+
  }
  }
  }
@@ -251,7 +257,7 @@ void Display_Temperature(unsigned char i, unsigned char j, unsigned int temp2wri
 
 
  text[4] = temp_fraction/1000 + 48;
- text[5]=248;
+ text[5]=223;
  text[6]='\0';
 
 
@@ -318,7 +324,7 @@ void main()
  Lcd_Cmd(_LCD_CLEAR);
  Lcd_Cmd(_LCD_CURSOR_OFF);
  Delay_ms(100);
-#line 397 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master/ds1820_pretraga_automatski_dodaj_novi_master.c"
+#line 403 "E:/Documents/PIC/Moji kodovi/mikroC/pic18f4431/DS1820/ds1820_pretraga_automatski_dodaj_novi_master1/ds1820_pretraga_automatski_dodaj_novi_master.c"
  EEPROMuMatricu();
 
 

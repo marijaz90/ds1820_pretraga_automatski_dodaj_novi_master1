@@ -239,6 +239,9 @@ void skenirajSenzore()
     }
     
     // ubacivanje novih u EEPROM
+    //INTtostr(brTrenutnihSenzora,tmp2);
+    //Lcd_out(2,1,tmp2);
+    //Delay_ms(1000);
     for(i=0; i<brTrenutnihSenzora; i++)
     {
         if(SenzoriFlagovi[i]==0)
@@ -261,13 +264,16 @@ void skenirajSenzore()
            }
            if(postojeciSenzor==0)
            {
+                //INTtostr(i,tmp2);
+                //Lcd_out(2,1,tmp2);
+                //Delay_ms(1000);
                 for(k=0;k<8;k++)
                 {
                     EEPROM_Write(brStarihSenzora*16 +k,ROMovi[i][k]);
                     EEPROMMatrica[brStarihSenzora][k] = ROMovi[i][k];
                 }
                 brStarihSenzora++;
-                break;
+
            }
         }
     }
