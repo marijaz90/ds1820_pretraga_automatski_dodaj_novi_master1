@@ -1,0 +1,14 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F4431 -DL -O11111114 -fo20 -N"E:\Documents\PIC\Moji kodovi\mikroC\pic18f4431\DS1820\ds1820_pretraga_automatski_dodaj_novi_master\ds1820_pretraga_automatski_dodaj_novi_master.mcppi" -EH"E:\Documents\PIC\Moji kodovi\mikroC\pic18f4431\DS1820\ds1820_pretraga_automatski_dodaj_novi_master\ds1820_pretraga_automatski_dodaj_novi_master.ihex" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"E:\Documents\PIC\Moji kodovi\mikroC\pic18f4431\DS1820\ds1820_pretraga_automatski_dodaj_novi_master\" -IP"E:\Documents\PIC\Moji kodovi\mikroC\pic18f4431\DS1820\ds1820_pretraga_automatski_dodaj_novi_master\" "ds1820_pretraga_automatski_dodaj_novi_master.c" "one_wire_functions.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_Conversions.mcl" "__Lib_EEPROM_256.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl"	 
+hint: 0	1139	Available RAM: 747 [bytes], Available ROM: 16384 [bytes]	 
+diagnostics: 0	122	Compilation Started	one_wire_functions.h
+diagnostics: 433	123	Compiled Successfully	ds1820_pretraga_automatski_dodaj_novi_master.c
+hint: 280	1164	Variable 'temp_fraction' has been eliminated by optimizer	ds1820_pretraga_automatski_dodaj_novi_master.c
+diagnostics: 0	122	Compilation Started	one_wire_functions.h
+diagnostics: 336	123	Compiled Successfully	one_wire_functions.c
+diagnostics: 0	127	All files Compiled in 125 ms	 
+hint: 0	1144	Used RAM (bytes): 675 (90%)  Free RAM (bytes): 72 (10%)	Used RAM (bytes): 675 (90%)  Free RAM (bytes): 72 (10%)
+hint: 0	1144	Used ROM (bytes): 5165 (32%)  Free ROM (bytes): 11219 (68%)	Used ROM (bytes): 5165 (32%)  Free ROM (bytes): 11219 (68%)
+diagnostics: 0	125	Project Linked Successfully	ds1820_pretraga_automatski_dodaj_novi_master.mcppi
+diagnostics: 0	128	Linked in 62 ms	 
+diagnostics: 0	129	Project 'ds1820_pretraga_automatski_dodaj_novi_master.mcppi' completed: 218 ms	 
+diagnostics: 0	103	Finished successfully: 16 Sep 2014, 17:30:55	ds1820_pretraga_automatski_dodaj_novi_master.mcppi
